@@ -22,10 +22,12 @@ public final class CVAuxiliaryView: UIView {
         }
     }
 
-    public let defaultFillColor = UIColor.colorFromCode(0xe74c3c)
+    public let defaultFillColor = UIColor.colorFromCode(0x2F358F)
 
     fileprivate var radius: CGFloat {
-        return (min(frame.height, frame.width) - 10) / 2
+        get {
+            return (min(frame.height, frame.width) - 10) / 2
+        }
     }
 
     public unowned let dayView: DayView
@@ -35,7 +37,7 @@ public final class CVAuxiliaryView: UIView {
         self.shape = shape
         super.init(frame: rect)
         strokeColor = UIColor.clear
-        fillColor = UIColor.colorFromCode(0xe74c3c)
+        fillColor = UIColor.colorFromCode(0x2F358F)
 
         layer.cornerRadius = 5
         backgroundColor = .clear

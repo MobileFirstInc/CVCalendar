@@ -15,10 +15,12 @@ public final class CVCalendarMenuView: UIView {
     public var symbolViews: [UILabel]?
 
     public var firstWeekday: Weekday? = .sunday
-    public var dayOfWeekTextColor: UIColor? = .darkGray
+    //cv mobilefirst
+    
+    public var dayOfWeekTextColor: UIColor? = .gray
     public var dayofWeekBackgroundColor: UIColor? = .clear
     public var dayOfWeekTextUppercase: Bool? = true
-    public var dayOfWeekFont: UIFont? = UIFont(name: "Avenir", size: 10)
+    public var dayOfWeekFont: UIFont? = UIFont.boldSystemFont(ofSize: 12)
     public var weekdaySymbolType: WeekdaySymbolType? = .short
 
     @IBOutlet public weak var menuViewDelegate: AnyObject? {

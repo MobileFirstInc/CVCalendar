@@ -44,10 +44,12 @@ public final class CVCalendarView: UIView {
     fileprivate var validated = false
 
     public var firstWeekday: Weekday {
-        if let delegate = delegate {
-            return delegate.firstWeekday()
-        } else {
-            return .sunday
+        get {
+            if let delegate = delegate {
+                return delegate.firstWeekday()
+            } else {
+                return .sunday
+            }
         }
     }
 
@@ -68,32 +70,40 @@ public final class CVCalendarView: UIView {
     }
 
     public var shouldAnimateResizing: Bool {
-        if let delegate = delegate, let should = delegate.shouldAnimateResizing?() {
-            return should
+        get {
+            if let delegate = delegate, let should = delegate.shouldAnimateResizing?() {
+                return should
+            }
+
+            return true
         }
-        
-        return true
     }
-    
+
     public var shouldAutoSelectDayOnMonthChange: Bool {
-        if let delegate = delegate, let should = delegate.shouldAutoSelectDayOnMonthChange?() {
-            return should
+        get {
+            if let delegate = delegate, let should = delegate.shouldAutoSelectDayOnMonthChange?() {
+                return should
+            }
+            return true
         }
-        return true
     }
 
     public var shouldAutoSelectDayOnWeekChange: Bool {
-        if let delegate = delegate, let should = delegate.shouldAutoSelectDayOnWeekChange?() {
-            return should
+        get {
+            if let delegate = delegate, let should = delegate.shouldAutoSelectDayOnWeekChange?() {
+                return should
+            }
+            return true
         }
-        return true
     }
-    
+
     public var shouldScrollOnOutDayViewSelection: Bool {
-        if let delegate = delegate, let should = delegate.shouldScrollOnOutDayViewSelection?() {
-            return should
+        get {
+            if let delegate = delegate, let should = delegate.shouldScrollOnOutDayViewSelection?() {
+                return should
+            }
+            return true
         }
-        return true
     }
 
     // MARK: - Calendar View Delegate
@@ -211,9 +221,15 @@ extension CVCalendarView {
                 if let mode = calendarMode {
                     switch mode {
                     case .weekView:
-                        height = selfSize.height
+                        //cv mobilefirst
+                       // height = selfSize.height
+                        
+                        height = selfSize.height*0.7
                     case .monthView :
-                        height = (selfSize.height / countOfWeeks) - (vSpace * countOfWeeks)
+                        //cv mobilefirst
+                        
+                       // height = (selfSize.height / countOfWeeks) - (vSpace * countOfWeeks)
+                        height = ((selfSize.height / countOfWeeks) - (vSpace * countOfWeeks))*0.7
                     }
 
                     // If no height constraint found we set it manually.

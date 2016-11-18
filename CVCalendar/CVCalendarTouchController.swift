@@ -13,7 +13,9 @@ public final class CVCalendarTouchController {
 
     // MARK: - Properties
     public var coordinator: Coordinator {
-        return calendarView.coordinator
+        get {
+            return calendarView.coordinator
+        }
     }
 
     // Init.

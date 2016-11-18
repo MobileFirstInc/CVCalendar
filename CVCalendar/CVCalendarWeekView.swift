@@ -48,12 +48,14 @@ public final class CVCalendarWeekView: UIView {
     public var utilizable = false /// Recovery service.
 
     public weak var calendarView: CVCalendarView! {
-        var calendarView: CVCalendarView!
-        if let monthView = monthView, let activeCalendarView = monthView.calendarView {
-            calendarView = activeCalendarView
+        get {
+            var calendarView: CVCalendarView!
+            if let monthView = monthView, let activeCalendarView = monthView.calendarView {
+                calendarView = activeCalendarView
+            }
+
+            return calendarView
         }
-        
-        return calendarView
     }
 
     // MARK: - Initialization
